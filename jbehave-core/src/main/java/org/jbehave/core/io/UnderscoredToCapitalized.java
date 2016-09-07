@@ -1,6 +1,7 @@
 package org.jbehave.core.io;
 
 import static org.apache.commons.lang3.StringUtils.contains;
+import static org.apache.commons.lang3.StringUtils.endsWith;
 import static org.apache.commons.lang3.StringUtils.substringAfterLast;
 import static org.apache.commons.lang3.StringUtils.substringBeforeLast;
 import static org.apache.commons.lang3.text.WordUtils.capitalize;
@@ -13,13 +14,14 @@ public class UnderscoredToCapitalized implements StoryNameResolver {
         this(".story");
     }
 
-    public UnderscoredToCapitalized(String extension) {
+    public UnderscoredToCapitalized(final String extension) {
         this.extension = extension;
     }
 
-    public String resolveName(String path) {
+    @Override
+    public String resolveName(final String path) {
         String name = path;
-        if (contains(name, extension)) {
+        if (endsWith(name, extension)) {
             name = substringBeforeLast(name, extension);
         }
         if (contains(name, '/')) {

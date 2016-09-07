@@ -15,6 +15,7 @@ public class UnderscoredToCapitalizedBehaviour {
         assertEquals("Some Story", resolver.resolveName("some/story/path/some_story.story"));
         assertEquals("Some Story", resolver.resolveName("some.story.package.some_story.story"));
         assertEquals("Some Story", resolver.resolveName("this.story/path/some_story.story"));
+        assertEquals("Some Story", resolver.resolveName("some.story.package.some_story"));
     }
 
     @Test
